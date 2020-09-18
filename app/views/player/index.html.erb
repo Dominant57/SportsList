@@ -1,16 +1,19 @@
 <p>選手情報</p>
-<%=@player.name%>
-<%=@player.info%>
-<%=@player.team%>
+<h5>選手名:<%=@player.name%></h5>
+<h5>選手情報:<%=@player.info%></h5>
+<h5>所属チーム:<%=@player.team%></h5>
+
+<h3>コメント一覧</h3>
 
 <%@comments.each do |comment|%>
-    <%=comment.user%>
-    <%=comment.review%>
-    <%=comment.content%>
+    <div class="comment_container">
+        <p>ユーザー：<%=comment.user%></p>
+        <p>レビュー：<%=comment.review%></p>
+    </div>
+        <p>コメント<%=comment.content%></p>
 <%end%>
 
 <%=form_tag("/player/#{@player.id}/create") do %>
-    <p>レビュー</p>
     <select name="review">
         <option>1</option>
         <option>2</option>
