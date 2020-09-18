@@ -10,6 +10,16 @@
   </head>
 
   <body>
+  <header>
+    <h2>SoccerLab</h2>
+    <%if session[:user_id]%>
+      <%=link_to("マイページ","mypage")%>
+      <%=link_to("ログアウト","logout",{method:"post"})%>
+    <%else%>
+        <%=link_to("新規登録","signup")%>
+        <%=link_to("ログイン","login")%>
+    <%end%>
+  </header>
     <%= yield %>
   </body>
 </html>
