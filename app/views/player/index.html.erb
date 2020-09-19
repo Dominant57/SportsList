@@ -1,7 +1,12 @@
 <p>選手情報</p>
 <h5>選手名:<%=@player.name%></h5>
 <h5>選手情報:<%=@player.info%></h5>
-<h5>所属チーム:<%=@player.team%></h5>
+<h5>所属チーム：</h5>
+<%=link_to(@team.name,"/team/#{@player.team_id}/new")%>
+<h5>背番号:<%=@player.back_number%></h5>
+<h5>年齢:<%=@player.age%></h5>
+<h5>身長:<%=@player.heights%></h5>
+<h5>ポジション:<%=@player.position%></h5>
 
 <h3 id="star_average">総合評価：</h3>
 <script>
