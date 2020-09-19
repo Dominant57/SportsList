@@ -1,0 +1,58 @@
+<p>選手情報</p>
+<h5>選手名:<%=@player.name%></h5>
+<h5>選手情報:<%=@player.info%></h5>
+<h5>所属チーム:<%=@player.team%></h5>
+
+<h3 id="star_average">総合評価：</h3>
+<script>
+$('#star_average').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= @review %>
+});
+</script>
+
+<h3>コメント一覧</h3>
+
+<% @comments.each do |comment| %>
+    <div class="comment_container">
+        <p>ユーザー：<%=comment.user%></p>
+        <div  id="star-<%=comment.id%>">レビュー
+        </div>
+        <script>
+            $('#star-<%=comment.id%>').raty({
+                size     : 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%=comment.review%>
+            });
+        </script>
+    </div>
+        <p>コメント<%=comment.content%></p>
+<% end %>
+
+<%=form_tag("/player/#{@player.id}/create") do %>
+    <div class="field" id="star">
+        <label for="name1">レビュー</label>
+        <input type="hidden" id="name1" name="review">
+    </div>
+    <script>
+        $('#star').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            scoreName: 'review',
+        });
+    </script>
+    <textarea name="content"></textarea>
+    <input type="submit" value="投稿">
+<%end%>

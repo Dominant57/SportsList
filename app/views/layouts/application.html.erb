@@ -4,12 +4,23 @@
     <title>SportsList</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <header>
+    <%=link_to("Sports List","/",class:"header__h2")%>
+    <div class="header__container">
+      <%if session[:user_id]%>
+        <%=link_to("マイページ","/mypage", class: "header__register")%>
+        <%=link_to("ログアウト","/logout",method:"post",class:"header__register")%>
+      <%else%>
+          <%=link_to("新規登録","/signup",class: "header__register")%>
+          <%=link_to("ログイン","/login",class: "header__register")%>
+      <%end%>
+    </div>
+  </header>
     <%= yield %>
   </body>
 </html>
