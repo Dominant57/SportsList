@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post "logout" => "user#logout"
   get "player/:id/index" => "player#index"
   post "player/:id/create" => "player#create"
+  post "likes/:id/:post_id/create"=> "likes#create"
+  post "likes/:id/:post_id/destroy" => "likes#destroy"
 end
