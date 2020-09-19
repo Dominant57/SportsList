@@ -34,8 +34,18 @@ $('#star_average').raty({
                 score: <%=comment.review%>
             });
         </script>
-    </div>
         <p>コメント<%=comment.content%></p>
+        <%if Like.find_by(user_id: session[:user_id], post_id:comment.id)%>
+            <%=link_to("/likes/#{@player.id}/#{comment.id}/destroy",{method: "post"}) do %>
+                <span class="fa fa-heart like-btn-unlike"></span>
+            <% end %>
+        <% else %>
+            <%=link_to("/likes/#{@player.id}/#{comment.id}/create",{method: "post"}) do %>
+                <span class="fa fa-heart like-btn"></span>
+            <% end %>
+        <% end %>
+        <%= Like.where(post_id: comment.id).count %>
+     </div>
 <% end %>
 
 <%=form_tag("/player/#{@player.id}/create") do %>

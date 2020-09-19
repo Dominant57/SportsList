@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_201835) do
+ActiveRecord::Schema.define(version: 2020_09_19_130603) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2020_09_18_201835) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "player"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "players", force: :cascade do |t|

@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .comment_container {
-    display: flex;
-    flex-direction: row;
+    border: 1px solid;
+}
+.like-btn {
+    color: #8899a6;
+}
+  
+.like-btn-unlike {
+    color: #ff2581;
 }

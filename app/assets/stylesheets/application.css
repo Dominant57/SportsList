@@ -1,3 +1,6 @@
+/* *= require_tree . */
+/* *= require_directory . */
+
 header {
     background-color: #333;
     display: flex;
