@@ -1,8 +1,11 @@
+<h2>チームから探す</h2>
+<% @teams.each do |team| %>
+    <%=link_to(team.name,"team/#{team.id}/new") %>
+<% end %>
 
-
-
-<%@players.each do |player|%>
-    <%=link_to(player.name,"player/#{player.id}/index")%>
-<%end%>
+<h2>選手から探す</h2>
+<% @players.each do |player| %>
+    <%=link_to(player.name,"player/#{player.id}/index") %>
+<% end %>
 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'team/new'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/" => "home#top"
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
   post "player/:id/create" => "player#create"
   post "likes/:id/:post_id/create"=> "likes#create"
   post "likes/:id/:post_id/destroy" => "likes#destroy"
+  get "team/:team_id/new" => "team#new"
 end
