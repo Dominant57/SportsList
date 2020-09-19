@@ -4,6 +4,7 @@ def index
     @comments=Comment.where player: @player.name
     @comment=Comment.new
     @review=@comments.all.average(:review)
+    @team=Team.find_by(id: @player.team_id)
 end
 def create
     @player=Player.find_by(id: params[:id])
